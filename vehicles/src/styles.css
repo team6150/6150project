@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+agm-map {
+  
+   float: right;
+   width: 940px;
+   height: 444px;
+ 
+}

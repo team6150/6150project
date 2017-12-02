@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 import { DashboardModule } from './dashboard/dashboard.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +18,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    DashboardModule
+    DashboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
