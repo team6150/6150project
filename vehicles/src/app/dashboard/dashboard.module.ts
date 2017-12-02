@@ -5,7 +5,7 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 import { HomeModule } from './home/home.module';
 import { ChartModule } from './charts/chart.module';
-import { BlankPageModule } from './blank-page/blankPage.module';
+import { LoginPageModule } from './login-page/loginPage.module';
 import { TableModule } from './tables/table.module';
 import { ContactModule } from './contact/contact.module';
 import { FormModule } from './forms/forms.module';
@@ -32,7 +32,7 @@ import {SidebarComponent} from '../shared/index';
         ContactModule,
       BSComponentModule,
         BSElementModule,
-        BlankPageModule
+       LoginPageModule
     ],
     declarations: [DashboardComponent, TopNavComponent, SidebarComponent],
     exports: [DashboardComponent, TopNavComponent, SidebarComponent]

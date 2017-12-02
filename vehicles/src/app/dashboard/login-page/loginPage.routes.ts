@@ -1,10 +1,10 @@
 import { Route } from '@angular/router';
 
-import { BlankPageComponent } from './index';
+import { LoginPageComponent } from './index';
 
-export const BlankPageRoutes: Route[] = [
+export const LoginPageRoutes: Route[] = [
   {
-    path: 'blankpage',
-    component: BlankPageComponent
+    path: 'login-page',
+    component: LoginPageComponent
   }
 ];

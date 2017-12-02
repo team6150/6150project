@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
-
-import { BlankPageComponent } from './blankPage.component';
+import { RouterModule } from '@angular/router';
+import { LoginPageComponent } from './loginPage.component';
 
 @NgModule({
-    imports: [],
-    declarations: [BlankPageComponent],
-    exports: [BlankPageComponent]
+
+   imports: [
+        RouterModule
+    ],
+    declarations: [LoginPageComponent],
+    exports: [LoginPageComponent]
 })
 
-export class BlankPageModule { }
+export class LoginPageModule { }
