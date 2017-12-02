@@ -1,1 +1,25 @@
 <h1>this is a login page</h1>
+<div class="col-md-8 col-md-offset-2">
+    <form  (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">Mail</label>
+            <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    formControlName="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    formControlName="password">
+        </div>
+        <button
+                class="btn btn-primary"
+                type="submit"
+               >Submit</button>
+    </form>
+</div>
