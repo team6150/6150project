@@ -9,10 +9,10 @@ export class GridComponent {
   index = 0;
   slides: Array<any> = [];
   imgUrl: Array<any> = [
-    `assets/img/slider1.jpg`,
-    `assets/img/slider2.jpg`,
-    `assets/img/slider3.jpg`,
-    `assets/img/slider0.jpg`
+    `assets/img/images5.jpg`,
+    `assets/img/images6.jpg`,
+    `assets/img/images7.jpg`,
+    `assets/img/images8.jpg`
   ];
   /* END */
   /* Alert component */
