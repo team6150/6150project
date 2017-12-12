@@ -6,7 +6,7 @@
 		 
 	</agm-map>
 	<div class="jumbotron">
-		<h1>Contact Husky Theme Amusement Park</h1>
+		<Strong><h1>Contact Husky Theme Amusement Park</h1></Strong>
 		<p>Ask any questions or express your concerns here! Husky Theme Amusement Park is happy to assist you in any way possible.</p>
 		<br>
 		<p>Husky Theme Park</p>	
@@ -22,31 +22,24 @@
 		<div class="col-lg-6">
 			<div class="card card-block">
 				<alert>Contact Form</alert>
-				<form role="form">
-					<div class="row">
-						<div class="col-lg-6">
-							<fieldset class="form-group">
-								<strong><label>First Name*</label></strong> <input
-									class="form-control" placeholder="Enter name">
-							</fieldset>
-						</div>
-						<div class="col-lg-6">
-							<fieldset class="form-group">
-								<strong><label>Last Name*</label></strong> <input
-									class="form-control" placeholder="Enter name">
-							</fieldset>
-						</div>
-					</div>
+				<form role="form" method="post" name="contactform">
+					<fieldset class="form-group">
+						<strong><label>Name*</label></strong> <input
+							class="form-control" placeholder="Enter name" id="name" required
+				               [(ngModel)]="model.name" name="name" #name="ngModel">
+					</fieldset>
 					
 					<fieldset class="form-group">
 						<strong><label>Email*</label></strong> <input
-							class="form-control" placeholder="Enter email">
+							class="form-control" placeholder="Enter email" id="email" required
+				               [(ngModel)]="model.email" name="email" #name="ngModel">
 							<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 					</fieldset>
 					
 					<fieldset class="form-group">
 						<strong><label>Address*</label></strong> <input
-							class="form-control" placeholder="Enter address">
+							class="form-control" placeholder="Enter address" id="address" required
+				               [(ngModel)]="model.address" name="address" #name="ngModel">
 							<small id="emailHelp" class="form-text text-muted">Street Address</small>
 					</fieldset>
 					
@@ -78,13 +71,6 @@
 						</div>
 						<div class="col-lg-6" (click)="$event.preventDefault()">
 							<fieldset class="form-group">
-								<!--<span dropdown (on-toggle)="toggled($event)"><select class="form-control" href=""
-									id="simple-dropdown" dropdownToggle>Select your country</select>
-									<ul class="dropdown-menu" aria-labelledby="simple-dropdown">
-										<li *ngFor="let choice of items"><a class="dropdown-item"
-											href="#">{{choice}}</a></li>
-									</ul>
-								</span>-->
 								<select class="form-control">
 									<option value="United States">United States</option>
 									<option value="Oversea">Oversea</option>
@@ -95,51 +81,28 @@
 						</div>
 					</div>
 	
-					<div class="form-group">
-						<label>Selects</label> <select class="form-control">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
-					</div>
-	
 					<fieldset class="form-group">
-						<label>Multiple Selects</label> <select multiple
-							class="form-control">
-							<option>1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-						</select>
+						<strong><label>COMMENTS*</label></strong>
+						<textarea class="form-control" id="comments" required
+				               [(ngModel)]="model.comments" name="comments" #name="ngModel"></textarea>
 					</fieldset>
 	
-					<button type="submit" class="btn btn-secondary">Submit
-						Button</button>
-					<button type="reset" class="btn btn-secondary">Reset Button</button>
+	
+					<button (click)="addData()" type="submit" class="btn btn-success">Submit
+						</button>
+					<button type="reset" class="btn btn-success">Reset</button>
 
 				</form>
 			</div>
 		</div>
 	</div>
-
+	
+	<div>
+    	<button (click)="loadUser()">Load profile</button>
+  	</div>
 	
 
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCs-r_5cKCUK7VRgiAth4w3WM9vMDw3GyI",
-    authDomain: "angularfire-471ae.firebaseapp.com",
-    databaseURL: "https://angularfire-471ae.firebaseio.com",
-    projectId: "angularfire-471ae",
-    storageBucket: "",
-    messagingSenderId: "46152882702"
-  };
-  firebase.initializeApp(config);
-</script>
+
 

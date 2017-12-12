@@ -1,8 +1,16 @@
+import { UserService } from '../../shared/user.service';
+import { Contact } from './contact';
 import {Component} from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'app-contact-cmp',
-    templateUrl: './contact.component.html'
+    templateUrl: './contact.component.html',
+    providers: [UserService],
+
 })
 
 export class ContactComponent {
@@ -13,14 +21,33 @@ export class ContactComponent {
 
   lng = -71.0892;
 
-  // Dropdown
-  public disabled = false;
-  public status: { isopen: boolean } = { isopen: false };
-  public items: Array<string> = ['United States', 'Oversea', 'Galaxy'];
+  model = new Contact(0, '', '', '', '');
 
-  // Dropdown
-  public toggled(open: boolean): void {
-    console.log('Dropdown is now: ', open);
+  constructor(private userService: UserService,
+              private http: Http
+             ) {}
+
+
+  loadUser() {
+    this.userService.getData();
+    console.log(this.model);
+  }
+
+  addData() {
+    let test_this = { 'name': this.model.name,
+                      'email': this.model.email,
+                      'address': this.model.address,
+                      'comments': this.model.comments
+                    };
+
+    let headers = new Headers ({ 'Content-Type': 'application/json' });
+
+    let options = new RequestOptions({ headers: headers, method: 'post' });
+
+    this.http.post('http://localhost/index.php', test_this, options)
+    .subscribe(res => {
+      console.log('post result %o', res);
+    });
   }
 
 }
