@@ -1,4 +1,4 @@
-import { UserService } from '../shared/user.service';
+import { UserService } from '../../shared/user.service';
 import { Contact } from './contact';
 import {Component} from '@angular/core';
 import { Injectable } from '@angular/core';
@@ -31,7 +31,6 @@ export class ContactComponent {
   loadUser() {
     this.userService.getData();
     console.log(this.model);
-
   }
 
   addData() {
