@@ -1,4 +1,4 @@
-import { UserService } from '../../shared/user.service';
+import { UserService } from '../shared/user.service';
 import { Contact } from './contact';
 import {Component} from '@angular/core';
 import { Injectable } from '@angular/core';
