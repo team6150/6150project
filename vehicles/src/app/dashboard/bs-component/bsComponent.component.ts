@@ -16,36 +16,6 @@ import 'rxjs/add/observable/of';
       .tooltip.customClass .tooltip-arrow {
         display: none;
       }
-      .jalendar {
-    position: relative;
-    width: 300px;
-    margin: 30px auto;
-}
-.jalendar .left {
-    float: left;
-}
-.jalendar .clear {
-    clear: both;
-}
-.jalendar.mid {
-    width: 420px;
-}
-.jalendar .added-event {
-    display: none;
-}
-.jalendar-wood {
-    position: relative;
-    background: url('../images/jalendar-wood-bg.png') left top;
-    border-radius: 10px;
-    box-shadow: inset 0 1px 1px rgba(255,255,255,0.7), inset 0 -2px 10px rgba(255,255,255,0.3);
-    padding: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    border-top: 1px solid #e1bf89;
-    border-right: 1px solid #b4925d;
-    border-left: 1px solid #b4925d;
-    display: inline-block;
-    z-index: 2;
-}
     `]
 })
 
