@@ -14,6 +14,13 @@
 		</div>
 	</div>
 	<!-- /.row -->
+	
+	<div class="chat">
+<input [(ngModel)]="message" /><button (click)="sendMessage()">Click</button>
+<div *ngFor="let message of messages">
+  {{message.text}}
+ </div>
+ </div>
 
 	<h1>Welcome to Husky Theme Park</h1>
 	<div class="row">
@@ -39,6 +46,7 @@
 			<a href="javascript:;" class="btn btn-primary btn-lg" role="button">Learn
 				more </a>
 		</p>
+		<livechat-widget [licenseId]="licenseId"></livechat-widget>
 	</div>
 	<div class="col-sm-4">
 			<div class="list-group">
