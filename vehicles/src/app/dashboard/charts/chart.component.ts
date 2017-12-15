@@ -1,6 +1,10 @@
 import { Component, OnInit} from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
+import { UserService } from '../../shared/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { promise } from 'protractor';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 
 declare var $: any;
 
@@ -46,17 +50,54 @@ export class ChartComponent implements OnInit {
     'type': '',
     'url': ''
   };
+  
+ private arr_baby=[5, 3, 4, 7, 2];
+ private arr_teen=[3, 4, 4, 2, 5];
+ private arr_adult=[2, 5, 6, 2, 1];
+ private arr_old=[3, 0, 4, 4, 3];
+
 
   constructor(private http: Http) {
 
   }
 
   ngOnInit() {
+     this.getData();
+     this.loadcomments();
+  }
+  loadcharts(){
 
+  }
+  loadcomments() {
+    var x=0;
     this.getData();
-    this.getData2();
-
-        let totalActivity: any = $('#total-activity');
+    var splitted : Array<string> = this.comments['_body'].split('},');
+      console.log('123'+this.comments['_body']);
+    for (let entry of splitted){
+      var entryy : Array<string> = entry.split(',');
+      var y = 0;
+      for (let entryyy of entryy){
+        var entryyyy : Array<string> = entryyy.split(':');
+        var z = 0;
+        for(let entryyyyy of entryyyy){
+          var cleaned = entryyyyy.replace(/\W/g, ""); 
+          //console.log(x+','+y+','+z+','+cleaned);
+          if(y==1&&z==1){
+            this.arr_baby[x]=<number><any>cleaned;
+          }else if(y==2&&z==1){
+            this.arr_teen[x]=<number><any>cleaned;
+          }else if(y==3&&z==1){
+            this.arr_adult[x]=<number><any>cleaned;
+          }else if(y==4&&z==1){
+            this.arr_old[x]=<number><any>cleaned;
+          }
+          z++;
+        }
+        y++;
+      }
+      x++;
+    }
+    let totalActivity: any = $('#total-activity');
         totalActivity.highcharts({
             chart: {
                 type: 'column'
@@ -88,19 +129,19 @@ export class ChartComponent implements OnInit {
 
             series: [{
                 name: 'Baby',
-                data: [5, 3, 4, 7, 2],
+                data: this.arr_baby,
                 stack: '0-12'
             }, {
                 name: 'Teenager',
-                data: [3, 4, 4, 2, 5],
+                data: this.arr_teen,
                 stack: '13-19'
             }, {
                 name: 'Adults',
-                data: [2, 5, 6, 2, 1],
+                data: this.arr_adult,
                 stack: '20-64'
             }, {
                 name: 'Olds',
-                data: [3, 0, 4, 4, 3],
+                data: this.arr_old,
                 stack: '65-'
             }]
         });
@@ -218,11 +259,11 @@ export class ChartComponent implements OnInit {
   }
 
   getData() {
-     return this.http.get('http://localhost/index1.php')
+      this.http.get('http://localhost/index1.php')
       .subscribe(
               data => this.comments = JSON.parse(JSON.stringify(data)),
               error => console.log(error),
-              () => console.log('done' + this.comments['_body']));
+              () => console.log('done' /*+ this.comments['_body']*/));
   }
   getData2() {
      return this.http.get('http://localhost/index2.php')
@@ -231,5 +272,24 @@ export class ChartComponent implements OnInit {
               error => console.log(error),
               () => console.log('done' + this.comments2['_body']));
   }
+  turnData() {
+    this.getData();
+    var splitted: Array<string> = this.comments['_body'].split('},');
+    for (let str of splitted){
+      console.log(str);
+    }
+  }
+  turnData2(){
+    this.getData2();
+    console.log('doneeee' + this.comments2['_body']);
+    var splitted : Array<string> = this.comments2['_body'].split(',');
 
+   console.log('doneeee' + this.comments2['_body']); 
+    console.log('turndata2'+this.comments2['_body']);
+    var arr=[];
+    var splitted: Array<string> = this.comments2['_body'].split('},');
+    for(let str of splitted){
+      console.log(str);
+    }
+  }
 }

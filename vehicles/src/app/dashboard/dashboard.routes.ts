@@ -9,6 +9,7 @@ import { GridRoutes } from './grid/grid.routes';
 import { BSComponentRoutes } from './bs-component/bsComponent.routes';
 import { BSElementRoutes } from './bs-element/bsElement.routes';
 import { ContactRoutes } from './contact/contact.routes';
+import { DetailRoutes } from './detail/detail.routes';
 
 import { DashboardComponent } from './index';
 
@@ -25,7 +26,8 @@ export const DashboardRoutes: Route[] = [
         ...FormRoutes,
         ...GridRoutes,
         ...BSElementRoutes,
-        ...ContactRoutes
+        ...ContactRoutes,
+        ...DetailRoutes
       ]
     }
 ];

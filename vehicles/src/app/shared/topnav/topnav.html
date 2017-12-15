@@ -1,5 +1,5 @@
-<nav class="navbar navbar-dark bg-inverse cen">
-	<a class="navbar-brand" href="javascript:;">Responsive navbar</a>
+<nav class="navbar navbar-dark bg-danger">
+	<a class="navbar-brand " href="javascript:;">Husky Amusement Park</a>
 	<ul class="nav navbar-nav cen2">
 		<li class="nav-item nav-item-elements"><a
 			class="nav-link nav-link-elements " routerLink="/dashboard/home"
@@ -45,6 +45,11 @@
 			class="nav-link nav-link-elements" [routerLink]="['login-page']"
 			[routerLinkActive]="['router-link-active']">
 			<i class="fa fa-fw fa-desktop"></i>&nbsp; Login </a>
+		</li>
+		<li class="nav-item nav-item-elements"><a
+			class="nav-link nav-link-elements" [routerLink]="['detail']"
+			[routerLinkActive]="['router-link-active']">
+			<i class="fa fa-fw fa-desktop"></i>&nbsp; Detail </a>
 		</li>
 	</ul>
 </nav>

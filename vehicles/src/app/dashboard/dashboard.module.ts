@@ -13,6 +13,8 @@ import { GridModule } from './grid/grid.module';
 import { BSComponentModule } from './bs-component/bsComponent.module';
 import { BSElementModule } from './bs-element/bsElement.module';
 
+import { DetailModule } from './detail/detail.module';
+
 import { DashboardComponent } from './dashboard.component';
 
 import {TopNavComponent} from '../shared/index';
@@ -32,7 +34,8 @@ import {SidebarComponent} from '../shared/index';
         ContactModule,
       BSComponentModule,
         BSElementModule,
-       LoginPageModule
+       LoginPageModule,
+       DetailModule
     ],
     declarations: [DashboardComponent, TopNavComponent, SidebarComponent],
     exports: [DashboardComponent, TopNavComponent, SidebarComponent]
