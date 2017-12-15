@@ -1,0 +1,43 @@
+.foot-wrap{
+	background-color: #373f48;
+	margin-top:80px;
+}
+ .row-content{
+>ul{
+	font-size:13px;
+	line-height:24px;
+	>li{
+		list-style:none;
+		>a{
+		&:hover{
+		text-decoration:none;
+		}
+		}
+	}	
+	}
+ } 
+ ul.social{
+margin:0;
+padding:0;
+width:100%;
+text-align:center;
+> li{
+	display:inline-block;
+	> a{
+		display:inline-block;
+		font-size:18px;
+		line-height:30px;
+		border-radius:36px;
+		background-color:@gray-light;
+		color:white;
+		margin:0 3px 3px 0;
+		&:hover{
+		text-decoration:none;
+		background-color:@link-hover-color;
+		}
+		}
+	}
+}
+h4{
+	color:#FFFFFF;
+}
