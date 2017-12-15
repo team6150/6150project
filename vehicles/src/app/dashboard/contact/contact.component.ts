@@ -1,9 +1,8 @@
-import { UserService } from '../../shared/user.service';
+
 import { Contact, comment } from './contact';
-import {Component, Injectable} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Component} from '@angular/core';
 import { Observable } from 'rxjs';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({

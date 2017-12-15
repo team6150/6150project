@@ -7,15 +7,22 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 
 import { BSComponentComponent } from './bsComponent.component';
+import {BrowserModule} from '@angular/platform-browser';
+import {ProjectItemComponent} from "./project-item/project-item.component";
+import {BannerHeadComponent} from "./banner-head/banner-head.component";
+
 
 @NgModule({
   imports: [
     RouterModule,
     FormsModule,
     CommonModule,
-    Ng2BootstrapModule.forRoot()
+    Ng2BootstrapModule.forRoot(),
+    BrowserModule
   ],
-  declarations: [BSComponentComponent],
+  declarations: [BSComponentComponent,
+                ProjectItemComponent,
+                BannerHeadComponent],
   exports: [BSComponentComponent]
 })
 
