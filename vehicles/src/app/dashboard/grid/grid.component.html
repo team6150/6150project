@@ -15,14 +15,8 @@
 	</div>
 	<!-- /.row -->
 	
-	<div class="chat">
-<input [(ngModel)]="message" /><button (click)="sendMessage()">Click</button>
-<div *ngFor="let message of messages">
-  {{message.text}}
- </div>
- </div>
 
-	<h1>Welcome to Husky Theme Park</h1>
+	<h1>Come and See What Attracts You Most</h1>
 	<div class="row">
 		<div class="col-md-12">
 			<carousel [interval]="myInterval"> <slide
@@ -48,13 +42,27 @@
 		</p>
 		
 	</div>
-	<div class="col-sm-4">
+	
+		<div class="page-header">
+		<h1>ATTRACTION LIST</h1>
+		<hr>
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<ul class="list-group">
+				<li class="list-group-item">Husky Sled</li>
+				<li class="list-group-item">Roller Coaster</li>
+				<li class="list-group-item">sea rover</li>
+				<li class="list-group-item">Husky Gallery</li>
+				<li class="list-group-item">Husky Carousel</li>
+				<li class="list-group-item">Husky Railroad</li>
+			</ul>
+		</div>
+		<div class="col-sm-4">
 			<div class="list-group">
 				<a href="javascript:;" class="list-group-item active">
-					<h4 class="list-group-item-heading">List group item heading</h4>
-					<p class="list-group-item-text">Donec id elit non mi porta
-						gravida at eget metus. Maecenas sed diam eget risus varius
-						blandit.</p>
+					<h4 class="list-group-item-heading">Bulletin Board</h4>
+				
 				</a> <a href="javascript:;" class="list-group-item">
 					<h4 class="list-group-item-heading">List group item heading</h4>
 					<p class="list-group-item-text">Donec id elit non mi porta
@@ -68,21 +76,19 @@
 				</a>
 			</div>
 		</div>
-		<div class="page-header">
-		<h1>ATTRACTION LIST</h1>
-		<hr>
-	</div>
-	<div class="row">
 		<div class="col-sm-4">
-			<ul class="list-group">
-				<li class="list-group-item">Husky Sled</li>
-				<li class="list-group-item">Roller Coaster</li>
-				<li class="list-group-item">sea rover</li>
-				<li class="list-group-item">The Husky Gallery</li>
-				<li class="list-group-item">Husky Railroad</li>
-			</ul>
-		</div>
 		
+	<div class="chat">
+<input  type="text"
+          class="chat-input"
+          placeholder="Write your message here..." [(ngModel)]="message" />
+           
+          <button class="btn-chat" (click)="sendMessage()"> Send </button>
+<div *ngFor="let message of messages">
+  {{message.text}}
+ </div>
+ </div>
+		</div>
 	</div>
 	<div class="card-block">
 	<ul class="timeline">

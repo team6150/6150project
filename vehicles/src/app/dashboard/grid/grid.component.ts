@@ -4,7 +4,7 @@ import { ChatService }       from './chat.service';
     selector: 'app-grid-cmp',
     templateUrl: './grid.component.html',
     styleUrls: ['timeline.scss'],
-    styles: [`
+ /*   styles: [`
     .chat {
       margin-top: 100px;
       margin-left: auto;
@@ -13,7 +13,7 @@ import { ChatService }       from './chat.service';
       font-family: 'Georgia';
       font-size: 200%;
     }
-  `],
+  `],*/
   providers: [ChatService]
 })
 
