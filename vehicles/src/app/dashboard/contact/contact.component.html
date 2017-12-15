@@ -100,9 +100,9 @@
 			<div class="card card-block">
 				<alert>Highlight Comments</alert>
 
-				<div class="card card-success card-inverse" *ngFor="let name of array_name; let comments of array_comments">
-					<div class="card-header card-success">{{name}}</div>
-					<div class="card-block bg-white">{{comments}}</div>
+				<div class="card card-success card-inverse" *ngFor="let i of commentss">
+					<div class="card-header card-success">{{i['name']}}</div>
+					<div class="card-block bg-white">{{i['comments']}}</div>
 				</div>
 				
 				<div>

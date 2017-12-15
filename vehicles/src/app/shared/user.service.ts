@@ -14,9 +14,8 @@ export class UserService {
 
 
   ngOnInit() {
-      //this.getData();
+
   }
 
-  
 
 }

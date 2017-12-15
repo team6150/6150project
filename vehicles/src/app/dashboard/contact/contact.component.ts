@@ -44,12 +44,17 @@ export class ContactComponent {
 
   private commm = [];
 
+  private commentss = [{name: '', comments: ''}];
+
   constructor(private http: Http) {
 
   }
 
   ngOnInit() {
     this.getData();
+    Observable.interval(1000 * 5).subscribe(x => {
+      this.loadcomments();
+    });
   }
 
   loadcomments() {
@@ -77,7 +82,13 @@ export class ContactComponent {
     this.array_comments[3] = this.comm[7];
     this.array_comments[4] = this.comm[9];
     this.array_comments[5] = this.comm[11];
-    console.log(this.comm);
+
+    this.commentss.length=0;
+    for (var i = 0; i < 6; i++) {
+      this.commentss.push({name: this.array_name[i], comments: this.array_comments[i]});
+    }
+    //console.log(this.array_name);
+    console.log(this.commentss);
 
   }
 
