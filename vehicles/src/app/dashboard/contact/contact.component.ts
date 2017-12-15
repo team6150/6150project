@@ -100,7 +100,15 @@ export class ContactComponent {
               () => console.log('done' + this.comments['_body']));
   }
 
+  alertMe(): void {
+    setTimeout(function(): void {
+      alert('You\'ve submit the form!');
+    });
+  };
+
   addData() {
+
+    this.alertMe();
 
     if (this.model.name == null || this.model.name == '') {
       alert('Name can\'t be blank');

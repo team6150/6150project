@@ -1,5 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChatService }       from './chat.service';
+import { CookieService } from 'ngx-cookie-service';
+
 @Component({
     selector: 'app-grid-cmp',
     templateUrl: './grid.component.html',
@@ -18,6 +20,9 @@ import { ChatService }       from './chat.service';
 })
 
 export class GridComponent implements OnInit, OnDestroy{
+  
+  cookieValue = 'UNKNOWN';
+
 
   messages = [];
   connection;
@@ -38,7 +43,8 @@ export class GridComponent implements OnInit, OnDestroy{
 
   /* END*/
 
-  constructor(private chatService: ChatService) {
+  constructor(private chatService: ChatService,
+              private cookieService: CookieService) {
     for (let i = 0; i < 4; i++) {
       this.addSlide();
     }
@@ -50,6 +56,8 @@ export class GridComponent implements OnInit, OnDestroy{
   }
 
   ngOnInit() {
+    this.cookieService.set( 'Test', 'Hello World' );
+    this.cookieValue = this.cookieService.get('Test');
     this.connection = this.chatService.getMessages().subscribe(message => {
       this.messages.push(message);
     })
