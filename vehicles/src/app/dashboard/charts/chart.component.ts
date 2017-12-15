@@ -1,6 +1,9 @@
 import { Component, OnInit} from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+
 
 declare var $: any;
+
 @Component({
   selector: 'app-chat-cmp',
   templateUrl: 'chat.html'
@@ -24,7 +27,35 @@ export class DetailComponent { }
 })
 
 export class ChartComponent implements OnInit {
+
+  private comments = {
+    '_body': '',
+    'status': '',
+    'ok': '',
+    'statusText': '',
+    'headers': '',
+    'type': '',
+    'url': ''
+  };
+  private comments2 = {
+    '_body': '',
+    'status': '',
+    'ok': '',
+    'statusText': '',
+    'headers': '',
+    'type': '',
+    'url': ''
+  };
+
+  constructor(private http: Http) {
+
+  }
+
   ngOnInit() {
+
+    this.getData();
+    this.getData2();
+
         let totalActivity: any = $('#total-activity');
         totalActivity.highcharts({
             chart: {
@@ -185,4 +216,20 @@ export class ChartComponent implements OnInit {
             }]
         });
   }
+
+  getData() {
+     return this.http.get('http://localhost/index1.php')
+      .subscribe(
+              data => this.comments = JSON.parse(JSON.stringify(data)),
+              error => console.log(error),
+              () => console.log('done' + this.comments['_body']));
+  }
+  getData2() {
+     return this.http.get('http://localhost/index2.php')
+      .subscribe(
+              data => this.comments2 = JSON.parse(JSON.stringify(data)),
+              error => console.log(error),
+              () => console.log('done' + this.comments2['_body']));
+  }
+
 }
