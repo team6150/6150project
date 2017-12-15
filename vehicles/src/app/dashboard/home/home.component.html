@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<h2 class="text-muted">
-		Dashboard <small>Statistics Overview</small>
+		Husky <small>Amusement Park</small>
 	</h2>
 	<div class="row">
 		<div class="col-md-12">
@@ -85,6 +85,7 @@
 		</div>
 		<div class="col-xl-3 col-lg-6">
 			<div class="card card-danger card-inverse">
+			
 				<div class="card-header card-danger">
 					<div class="row">
 						<div class="col-xs-3">
@@ -106,36 +107,8 @@
 			</div>
 		</div>
 	</div>
-	<alert *ngFor="let alert of alerts; let i = index" [type]="alert.type"
-		dismissible="true" (close)="closeAlert(i)"> {{ alert?.msg }} </alert>
-	<div class="row">
-		<div class="col-lg-8">
-			<div class="card card-default">
-				<div class="card-header">
-					<i class="fa fa-clock-o fa-fw"></i> Responsive Timeline
-				</div>
-				<!-- /.card-header -->
-				<app-timeline-cmp></app-timeline-cmp>
-				<!-- /.card-body -->
-			</div>
-			<!-- /.card -->
-		</div>
-		<!-- /.col-lg-8 -->
-		<div class="col-lg-4">
-			<div class="card card-default">
-				<div class="card-header">
-					<i class="fa fa-bell fa-fw"></i> Notifications card
-				</div>
-				<!-- /.card-header -->
-				<app-notifications-cmp></app-notifications-cmp>
-				<!-- /.card-body -->
-			</div>
-			<!-- /.card -->
-
-			<app-chat-cmp></app-chat-cmp>
-			<!-- /.card .chat-card -->
-		</div>
-		<!-- /.col-lg-4 -->
+	<div>
+	<app-footer-cmp></app-footer-cmp>
 	</div>
 
 </div>
