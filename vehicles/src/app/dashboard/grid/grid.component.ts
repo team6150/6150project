@@ -6,6 +6,7 @@ import {Component} from '@angular/core';
 })
 
 export class GridComponent {
+  licenseId:number = 8928139;
   myInterval = 5000;
   index = 0;
   slides: Array<any> = [];

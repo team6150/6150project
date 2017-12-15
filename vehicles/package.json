@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "4.0.0",
     "@angular/router": "4.0.0",
     "@angular/tsc-wrapped": "0.5.0",
+    "@livechat/angular-widget": "0.0.3",
     "bootstrap": "4.0.0-alpha.4",
     "core-js": "2.4.1",
     "es6-module-loader": "0.17.11",
