@@ -22,7 +22,7 @@
 		<div class="col-lg-6">
 			<div class="card card-block">
 				<alert>Contact Form</alert>
-				<form role="form" method="post" name="contactform">
+				<form role="form" method="post" name="contactform" (ngSubmit)="addData()">
 					<fieldset class="form-group">
 						<strong><label>Name*</label></strong> <input
 							class="form-control" placeholder="Enter name" id="name" required
@@ -88,19 +88,29 @@
 					</fieldset>
 	
 	
-					<button (click)="addData()" type="submit" class="btn btn-success">Submit
+					<button type="submit" class="btn btn-success">Submit
 						</button>
 					<button type="reset" class="btn btn-success">Reset</button>
 
 				</form>
 			</div>
 		</div>
-	</div>
+		
+		<div class="col-lg-6">
+			<div class="card card-block">
+				<alert>Highlight Comments</alert>
+
+				<div class="card card-success card-inverse" *ngFor="let name of array_name; let comments of array_comments">
+					<div class="card-header card-success">{{name}}</div>
+					<div class="card-block bg-white">{{comments}}</div>
+				</div>
+				
+				<div>
+	    			<button (click)="loadcomments()">Load Comments</button>	    		    
+	  			</div>
 	
-	<div>
-    	<button (click)="loadUser()">Load profile</button>
-  	</div>
-	
+			</div>
+		</div>
 
 </div>
 

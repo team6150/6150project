@@ -14,15 +14,9 @@ export class UserService {
 
 
   ngOnInit() {
-      this.getData();
+      //this.getData();
   }
 
-  getData() {
-     return this.http.get('http://localhost/index.php')
-      .subscribe(
-              data => this.data = JSON.stringify(data),
-              error => console.log(error),
-              () => console.log("done"+this.data));
-  }
+  
 
 }
