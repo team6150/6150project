@@ -23,7 +23,7 @@
 				*ngFor="let slidez of slides;let index=index"
 				[active]="slidez.active"> <img [src]="slidez.image">
 			<div class="carousel-caption">
-				<h4>Slide {{index}}</h4>
+				
 				<p>{{slidez.text}}</p>
 			</div>
 			</slide>  
@@ -31,11 +31,9 @@
 		</div>
 	</div>
 	<div class="jumbotron">
-		<h1>Welcome to Husky!</h1>
-		<p>This is a template for a simple marketing or informational
-			website. It includes a large callout called a jumbotron and three
-			supporting pieces of content. Use it as a starting point to create
-			something more unique.</p>
+		<h1>welcome!!!</h1>
+		<p>below you will see different attcaction activities in our park,choose the acitvities that you like
+		you can also leave your opinion in the chat box,enjoy your trip!!!</p>
 		<p>
 			<a href="javascript:;" class="btn btn-primary btn-lg" role="button">Learn
 				more </a>
@@ -47,7 +45,7 @@
 		<h1>ATTRACTION LIST</h1>
 		<hr>
 	</div>
-	<div class="row">
+<div class="row">
 		<div class="col-sm-4">
 			<ul class="list-group">
 				<li class="list-group-item">Husky Sled</li>
@@ -64,32 +62,38 @@
 					<h4 class="list-group-item-heading">Bulletin Board</h4>
 				
 				</a> <a href="javascript:;" class="list-group-item">
-					<h4 class="list-group-item-heading">List group item heading</h4>
-					<p class="list-group-item-text">Donec id elit non mi porta
-						gravida at eget metus. Maecenas sed diam eget risus varius
-						blandit.</p>
+					<h4 class="list-group-item-heading">Sled is Opne Now!</h4>
+					<p class="list-group-item-text">Thanks for the big snow! husky sled is available since 10th December,come and try it!.</p>
 				</a> <a href="javascript:;" class="list-group-item">
-					<h4 class="list-group-item-heading">List group item heading</h4>
-					<p class="list-group-item-text">Donec id elit non mi porta
-						gravida at eget metus. Maecenas sed diam eget risus varius
-						blandit.</p>
+					<h4 class="list-group-item-heading">Open Hours</h4>
+					<p class="list-group-item-text">It is Winter now,our park will be close at 22:00,enjoy your trip and watch the time!</p>
 				</a>
 			</div>
 		</div>
+		
 		<div class="col-sm-4">
 		
+		<div class="chat-panel card card-default">
+	<div class="card-header">
+		<i class="fa fa-comments fa-fw"></i> Chat
+	</div>
+		<div class="chat-panel card card-default">
 	<div class="chat">
-<input  type="text"
-          class="chat-input"
-          placeholder="Write your message here..." [(ngModel)]="message" />
+	
+<input  type="text" class="chat-input" placeholder="Type your message here..." [(ngModel)]="message" />
            
           <button class="btn-chat" (click)="sendMessage()"> Send </button>
-<div *ngFor="let message of messages">
-  {{message.text}}
- </div>
- </div>
-		</div>
-	</div>
+<div class="chat-body clearfix" *ngFor="let message of messages">
+  <p>{{message.text}}</p>
+   
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+</div>
+	
+	
 	<div class="card-block">
 	<ul class="timeline">
 		<li>
@@ -98,17 +102,17 @@
 			</div>
 			<div class="timeline-panel">
 				<div class="timeline-heading">
-					<h4 class="timeline-title">Lorem ipsum dolor</h4>
+					<h4 class="timeline-title">Husky Sled</h4>
+					<img class="img-thumbnail" src="assets/img/images2.jpg" alt="">
 					<p>
-						<small class="text-muted"><i class="fa fa-clock-o"></i> 11
-							hours ago via Twitter</small>
+						<small class="text-muted"><i class="fa fa-clock-o"></i>Open Hour 8:00 to 10:00</small>
+					</p>
+					<p>
+						<small class="text-muted">Height: 32in or taller<br>Running, Ride</small>
 					</p>
 				</div>
 				<div class="timeline-body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae,
-						officia pariatur? Est cum veniam excepturi. Maiores praesentium,
-						porro voluptas suscipit facere rem dicta, debitis.</p>
+					<p>Alaskan Huskies (a mix between Siberian Huskies and Alaskan Malamutes) are also a popular dog for sled dog racing, because of their endurance, good eating habits, speed, and dedication to running even when tired.</p>
 				</div>
 			</div>
 		</li>
@@ -118,17 +122,18 @@
 			</div>
 			<div class="timeline-panel">
 				<div class="timeline-heading">
-					<h4 class="timeline-title">Lorem ipsum dolor</h4>
+					<h4 class="timeline-title">Roller Coaster</h4>
+					<img class="img-thumbnail" src="assets/img/images4.jpg" alt="">
+					<p>
+						<small class="text-muted"><i class="fa fa-clock-o"></i>Open Hour 10:00 to 12:00</small>
+					</p>
+					<p>
+						<small class="text-muted">Height: 48in or taller<br>Spinnnig, Interaction</small>
+					</p>
 				</div>
 				<div class="timeline-body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Autem dolorem quibusdam, tenetur commodi provident cumque magni
-						voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore.
-						Animi officiis alias, officia repellendus.</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Laudantium maiores odit qui est tempora eos, nostrum provident
-						explicabo dignissimos debitis vel! Adipisci eius voluptates, ad
-						aut recusandae minus eaque facere.</p>
+					<p>A roller coaster is a type of amusement ride that employs a form of elevated railroad track designed with tight turns, steep slopes, and sometimes inversions.[1] People ride along the track in open cars, and the rides are often found in amusement parks and theme parks around the world</p>
+					
 				</div>
 			</div>
 		</li>
@@ -138,26 +143,35 @@
 			</div>
 			<div class="timeline-panel">
 				<div class="timeline-heading">
-					<h4 class="timeline-title">Lorem ipsum dolor</h4>
+					<h4 class="timeline-title">sea rover</h4>
+					<img class="img-thumbnail" src="assets/img/images10.jpg" alt="">
+					<p>
+						<small class="text-muted"><i class="fa fa-clock-o"></i>Open Hour 13:00 to 16:00</small>
+					</p>
+					<p>
+						<small class="text-muted">Height: Any Height<br>Big Drops,Loud</small>
+					</p>
 				</div>
 				<div class="timeline-body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Repellendus numquam facilis enim eaque, tenetur nam id qui vel
-						velit similique nihil iure molestias aliquam, voluptatem totam
-						quaerat, magni comodi quisquam.</p>
+					<p>A pirate ship is a type of amusement ride based off pirate ships, consisting of an open, seated gondola (usually in the style of a pirate ship) which swings back and forth, subjecting the rider to various levels of angular momentum. A variant where the riders must pull on ropes to swings the ride is known as a swing boat.</p>
 				</div>
 			</div>
 		</li>
 		<li class="timeline-inverted">
 			<div class="timeline-panel">
 				<div class="timeline-heading">
-					<h4 class="timeline-title">Lorem ipsum dolor</h4>
+					<h4 class="timeline-title">Husky Gallery</h4>
+					<img class="img-thumbnail" src="assets/img/images1.jpg" alt="">
+					<p>
+						<small class="text-muted"><i class="fa fa-clock-o"></i>Open Hour 14:00 to 15:00</small>
+					</p>
+					<p>
+						<small class="text-muted">Height: Any Height<br>Indoor,Experience</small>
+					</p>
 				</div>
 				<div class="timeline-body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Voluptates est quaerat asperiores sapiente, eligendi, nihil.
-						Itaque quos, alias sapiente rerum quas odit! Aperiam officiis
-						quidem delectus libero, omnis ut debitis!</p>
+					<p>Here you will see all famous husky in our gallery
+					you will know about their experience and history,some of them even have been to north pore</p>
 				</div>
 			</div>
 		</li>
@@ -167,13 +181,17 @@
 			</div>
 			<div class="timeline-panel">
 				<div class="timeline-heading">
-					<h4 class="timeline-title">Lorem ipsum dolor</h4>
+					<h4 class="timeline-title">Husky Carousel</h4>
+					<img class="img-thumbnail" src="assets/img/images8.jpg" alt="">
+					<p>
+						<small class="text-muted"><i class="fa fa-clock-o"></i>Open Hour 14:00 to 16:00</small>
+					</p>
+					<p>
+						<small class="text-muted">Height: Any Height<br>Spinning, Slow Ride</small>
+					</p>
 				</div>
 				<div class="timeline-body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Nobis minus modi quam ipsum alias at est molestiae excepturi
-						delectus nesciunt, quibusdam debitis amet, beatae consequuntur
-						impedit nulla qui! Laborum, atque.</p>
+					<p>Carousels are commonly populated with horses, each horse weighing roughly 100 lbs (45 kg), but may include a variety of mounts,[2] for example pigs, zebras, tigers or mythological creatures such as dragons or unicorns. Sometimes, chairlike or bench like seats are used and occasionally mounts can be shaped like aeroplanes or cars.</p>
 					<hr>
 					<div class="btn-group">
 						<button type="button"
@@ -192,32 +210,25 @@
 				</div>
 			</div>
 		</li>
-		<li>
-			<div class="timeline-panel">
-				<div class="timeline-heading">
-					<h4 class="timeline-title">Lorem ipsum dolor</h4>
-				</div>
-				<div class="timeline-body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Sequi fuga odio quibusdam. Iure expedita, incidunt unde quis nam!
-						Quod, quisquam. Officia quam qui adipisci quas consequuntur
-						nostrum sequi. Consequuntur, commodi.</p>
-				</div>
-			</div>
-		</li>
+		
 		<li class="timeline-inverted">
 			<div class="timeline-badge success">
 				<i class="fa fa-graduation-cap"></i>
 			</div>
 			<div class="timeline-panel">
 				<div class="timeline-heading">
-					<h4 class="timeline-title">Lorem ipsum dolor</h4>
+					<h4 class="timeline-title">Husky Railroad</h4>
+					<img class="img-thumbnail" src="assets/img/image9.jpg" alt="">
+					<p>
+						<small class="text-muted"><i class="fa fa-clock-o"></i>Open Hour 16:00 to 17:00</small>
+					</p>
+					<p>
+						<small class="text-muted">Height: Any Height<br>Dark,Loud,Getting Around</small>
+					</p>
 				</div>
 				<div class="timeline-body">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-						Deserunt obcaecati, quaerat tempore officia voluptas debitis
-						consectetur culpa amet, accusamus dolorum fugiat, animi dicta
-						aperiam, enim incidunt quisquam maxime neque eaque.</p>
+					<p>come to our little train , along the trip you will be able to see all famous
+					place in our amusement park,the train is comfortable and neat, kids will love it !</p>
 				</div>
 			</div>
 		</li>
