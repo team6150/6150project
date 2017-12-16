@@ -1,7 +1,9 @@
 .jumbotron {
   padding: $jumbotron-padding ($jumbotron-padding / 2);
   margin-bottom: $jumbotron-padding;
-  background-color: $jumbotron-bg;
+  background-image: url("../img/Tinja-husky-sled.jpg");
+  color: #f4d641;
+  
   @include border-radius($border-radius-lg);
 
   @include media-breakpoint-up(sm) {
@@ -16,5 +18,6 @@
 .jumbotron-fluid {
   padding-right: 0;
   padding-left: 0;
+  
   @include border-radius(0);
 }
