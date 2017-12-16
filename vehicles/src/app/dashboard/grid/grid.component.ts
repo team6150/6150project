@@ -35,7 +35,7 @@ export class GridComponent implements OnInit, OnDestroy{
   imgUrl: Array<any> = [
     `assets/img/images5.jpg`,
     `assets/img/images6.jpg`,
-    `assets/img/images7.jpg`,
+    `assets/img/images2.jpg`,
     `assets/img/images8.jpg`
   ];
   /* END */
@@ -72,8 +72,8 @@ export class GridComponent implements OnInit, OnDestroy{
     let i = this.slides.length;
     this.slides.push({
       image: this.imgUrl[i],
-      text: `${['Dummy ', 'Dummy ', 'Dummy ', 'Dummy '][this.slides.length % 4]}
-            ${['text 0', 'text 1', 'text 2', 'text 3'][this.slides.length % 4]}`
+      text: `${[' ', ' ', ' ', ' '][this.slides.length % 4]}
+            ${['park gate', 'sled', 'railroad', 'carousel'][this.slides.length % 4]}`
     });
   }
   /* END */

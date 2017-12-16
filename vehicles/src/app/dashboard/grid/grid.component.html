@@ -48,12 +48,12 @@
 <div class="row">
 		<div class="col-sm-4">
 			<ul class="list-group">
-				<li class="list-group-item">Husky Sled</li>
-				<li class="list-group-item">Roller Coaster</li>
-				<li class="list-group-item">sea rover</li>
-				<li class="list-group-item">Husky Gallery</li>
-				<li class="list-group-item">Husky Carousel</li>
-				<li class="list-group-item">Husky Railroad</li>
+				<li class="list-group-item list-group-item-action">Husky Sled</li>
+				<li class="list-group-item list-group-item-action list-group-item-success">Roller Coaster</li>
+				<li class="list-group-item list-group-item-action list-group-item-info">sea rover</li>
+				<li class="list-group-item list-group-item-action list-group-item-warning">Husky Gallery</li>
+				<li class="list-group-item list-group-item-action list-group-item-danger">Husky Carousel</li>
+				<li class="list-group-item list-group-item-action list-group-item-success">Husky Railroad</li>
 			</ul>
 		</div>
 		<div class="col-sm-4">
@@ -78,11 +78,10 @@
 		<i class="fa fa-comments fa-fw"></i> Chat
 	</div>
 		<div class="chat-panel card card-default">
-	<div class="chat">
+	<div class="chat container-fluid">
 	
-<input  type="text" class="chat-input" placeholder="Type your message here..." [(ngModel)]="message" />
-           
-          <button class="btn-chat" (click)="sendMessage()"> Send </button>
+   <input  type="text"  placeholder="Type your message here..." [(ngModel)]="message" />  
+    <button class="btn-chat btn-primary " (click)="sendMessage()"> Send </button>
 <div class="chat-body clearfix" *ngFor="let message of messages">
   <p>{{message.text}}</p>
    
