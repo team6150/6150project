@@ -2,8 +2,9 @@
 	<h2 class="text-muted">
 		Husky <small>Amusement Park</small>
 	</h2>
+	<hr>
 	<div class="row">
-		<div class="col-md-12" height="1000px">
+		<div class="col-md-12">
 			<carousel [interval]="myInterval"> <slide
 				*ngFor="let slidez of slides;let index=index"
 				[active]="slidez.active"> <img [src]="slidez.image">
