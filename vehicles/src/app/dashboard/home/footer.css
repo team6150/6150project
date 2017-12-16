@@ -1,6 +1,6 @@
 .foot-wrap{
-	background-color: #373f48;
-	margin-top:80px;
+	background-color: 	#000000;
+	margin-top:30px;
 }
  .row-content{
 >ul{
@@ -33,6 +33,7 @@ text-align:center;
 		margin:0 3px 3px 0;
 		&:hover{
 		text-decoration:none;
+		color:white;
 		background-color:@link-hover-color;
 		}
 		}
@@ -40,4 +41,23 @@ text-align:center;
 }
 h4{
 	color:#FFFFFF;
+}
+/* unvisited link */
+a:link {
+    color: #ffffff;
+}
+
+/* visited link */
+a:visited {
+    color: #ffffff;
+}
+
+/* mouse over link */
+a:hover {
+    color: #a6a6a6;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
 }
