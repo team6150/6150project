@@ -4,9 +4,6 @@
             <h3 class="panel-title">User Login</h3>
         </div>
         
-        [routerLink]="['tables']"
-			[routerLinkActive]="['router-link-active']"
-        
         <div class="panel-body">
             <form #form="ngForm" [routerLink]="['../home']"
 			[routerLinkActive]="['router-link-active']" (ngSubmit)="form.form.valid && doLogin()" novalidate class="form-horizontal" role="form">
