@@ -9,3 +9,7 @@ export class Contact {
   ) {  }
 
 }
+
+export class comment {
+  constructor(name: string, comments: string) {}
+}

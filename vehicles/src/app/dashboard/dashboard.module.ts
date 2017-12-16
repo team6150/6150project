@@ -6,12 +6,12 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { HomeModule } from './home/home.module';
 import { ChartModule } from './charts/chart.module';
 import { LoginPageModule } from './login-page/loginPage.module';
-import { TableModule } from './tables/table.module';
 import { ContactModule } from './contact/contact.module';
-import { FormModule } from './forms/forms.module';
 import { GridModule } from './grid/grid.module';
 import { BSComponentModule } from './bs-component/bsComponent.module';
 import { BSElementModule } from './bs-element/bsElement.module';
+
+import { DetailModule } from './detail/detail.module';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -26,13 +26,12 @@ import {SidebarComponent} from '../shared/index';
       Ng2BootstrapModule.forRoot(),
       HomeModule,
         ChartModule,
-        TableModule,
-        FormModule,
         GridModule,
         ContactModule,
       BSComponentModule,
         BSElementModule,
-       LoginPageModule
+       LoginPageModule,
+       DetailModule
     ],
     declarations: [DashboardComponent, TopNavComponent, SidebarComponent],
     exports: [DashboardComponent, TopNavComponent, SidebarComponent]

@@ -24,6 +24,13 @@ export class ChatComponent { }
 export class NotificationComponent { }
 
 @Component({
+  selector: 'app-footer-cmp',
+  templateUrl: 'footer.html',
+  styleUrls: ['footer.css'],
+})
+export class FooterComponent { }
+
+@Component({
   selector: 'app-home-cmp',
   templateUrl: 'home.component.html'
 })

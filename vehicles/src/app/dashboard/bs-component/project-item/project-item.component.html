@@ -1,0 +1,22 @@
+<a *ngFor="let item of projects; let i=index;" href='javascript:void(0)' target="_blank" class='program-item'>
+  <div class='shadow'>
+    <div class='program-list-head'>
+      <div id='repo-bg-{{item.img}}'></div>
+    </div>
+    <div class='program-list-cont'>
+      <div class='program-list-tit'>{{item.title}}</div>
+      <div class='program-list-t clearfix'>
+        <span class='text'>{{item.subtitle}}</span>
+      </div>
+      <div class='program-list-dest'>{{item.meta}}</div>
+
+      <div class='program-list-bot'>
+        <span class='text'><a href='javascript:void(0)' target="_blank">make a reservation</a></span>
+      </div>
+    </div>
+  </div>
+
+  <a  *ngIf="item.npm" href='javascript:void(0)' target="_blank"><span class='item-new'>star!</span></a>
+  <div class='c-line'></div>
+  <div class='d-line'></div>
+</a>

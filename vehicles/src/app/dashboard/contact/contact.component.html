@@ -8,21 +8,20 @@
 	<div class="jumbotron">
 		<Strong><h1>Contact Husky Theme Amusement Park</h1></Strong>
 		<p>Ask any questions or express your concerns here! Husky Theme Amusement Park is happy to assist you in any way possible.</p>
-		<br>
-		<p>Husky Theme Park</p>	
-		<p>
-		  Call Us, Email Us, or Send Us A Letter<br>
+		<br>	
+		<p style="color:black;padding-top:80px">
+		  <strong>Call Us, Email Us, or Send Us A Letter<br>
 		  Telephone: 666-666-6666 <br>
 		  chen.zena@husky.neu.edu<br>
 		  360 Huntington Ave, Boston, MA 02115<br>
-	      Contact Manager: Zenan Chen<br>
+	      Contact Manager: Zenan Chen</strong><br>
 		</p>		
 	</div>
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="card card-block">
 				<alert>Contact Form</alert>
-				<form role="form" method="post" name="contactform">
+				<form role="form" method="post" name="contactform" (ngSubmit)="addData()">
 					<fieldset class="form-group">
 						<strong><label>Name*</label></strong> <input
 							class="form-control" placeholder="Enter name" id="name" required
@@ -88,19 +87,29 @@
 					</fieldset>
 	
 	
-					<button (click)="addData()" type="submit" class="btn btn-success">Submit
+					<button type="submit" class="btn btn-success">Submit
 						</button>
 					<button type="reset" class="btn btn-success">Reset</button>
 
 				</form>
 			</div>
 		</div>
-	</div>
+		
+		<div class="col-lg-6">
+			<div class="card card-block">
+				<alert>Highlight Comments</alert>
+
+				<div class="card card-success card-inverse" *ngFor="let i of commentss">
+					<div class="card-header card-success">{{i['name']}}</div>
+					<div class="card-block bg-white">{{i['comments']}}</div>
+				</div>
+				
+				<div>
+	    			<button (click)="loadcomments()">Load Comments</button>	    		    
+	  			</div>
 	
-	<div>
-    	<button (click)="loadUser()">Load profile</button>
-  	</div>
-	
+			</div>
+		</div>
 
 </div>
 

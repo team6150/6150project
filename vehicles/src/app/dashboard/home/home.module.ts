@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
-import { TimelineComponent, ChatComponent, NotificationComponent } from './home.component';
+import { TimelineComponent, ChatComponent, NotificationComponent, FooterComponent } from './home.component';
 
 @NgModule({
     imports: [CommonModule, Ng2BootstrapModule.forRoot()],
-    declarations: [HomeComponent, TimelineComponent, ChatComponent, NotificationComponent],
-    exports: [HomeComponent, TimelineComponent, ChatComponent, NotificationComponent]
+    declarations: [HomeComponent, TimelineComponent, ChatComponent, NotificationComponent, FooterComponent ],
+    exports: [HomeComponent, TimelineComponent, ChatComponent, NotificationComponent, FooterComponent]
 })
 
 export class HomeModule { }

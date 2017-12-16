@@ -1,6 +1,29 @@
 import { Component, OnInit} from '@angular/core';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { UserService } from '../../shared/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { promise } from 'protractor';
+import { Observable } from 'rxjs';
+import 'rxjs/add/operator/map';
 
 declare var $: any;
+
+@Component({
+  selector: 'app-chat-cmp',
+  templateUrl: 'chat.html'
+})
+export class ChatComponent { }
+
+@Component({
+  selector: 'app-notifications-cmp',
+  templateUrl: 'notifications.html'
+})
+export class NotificationComponent { }
+@Component({
+  selector: 'app-detail-cmp',
+  templateUrl: 'detail.html'
+})
+export class DetailComponent { }
 
 @Component({
   selector: 'app-chart-cmp',
@@ -8,152 +31,130 @@ declare var $: any;
 })
 
 export class ChartComponent implements OnInit {
+
+  private comments = {
+    '_body': '',
+    'status': '',
+    'ok': '',
+    'statusText': '',
+    'headers': '',
+    'type': '',
+    'url': ''
+  };
+  private comments2 = {
+    '_body': '',
+    'status': '',
+    'ok': '',
+    'statusText': '',
+    'headers': '',
+    'type': '',
+    'url': ''
+  };
+  
+ private arr_baby=[5, 3, 4, 7, 2];
+ private arr_teen=[3, 4, 4, 2, 5];
+ private arr_adult=[2, 5, 6, 2, 1];
+ private arr_old=[3, 0, 4, 4, 3];
+
+
+  constructor(private http: Http) {
+
+  }
+
   ngOnInit() {
-        let container: any = $('#container');
-        container.highcharts({
-        chart: {
-            type: 'area'
-        },
-        title: {
-            text: 'Historic and Estimated Worldwide Population Distribution by Region'
-        },
-        subtitle: {
-            text: 'Source: Wikipedia.org'
-        },
-        xAxis: {
-            categories: ['1750', '1800', '1850', '1900', '1950', '1999', '2050'],
-            tickmarkPlacement: 'on',
-            title: {
-                enabled: false
-            }
-        },
-        yAxis: {
-            title: {
-                text: 'Percent'
-            }
-        },
-        tooltip: {
-            pointFormat: '<span style="color:{series.color}">{series.name}</span>' +
-            ': <b>{point.percentage:.1f}%</b> ({point.y:,.0f} millions)<br/>',
-            shared: true
-        },
-        plotOptions: {
-            area: {
-                stacking: 'percent',
-                lineColor: '#ffffff',
-                lineWidth: 1,
-                marker: {
-                    lineWidth: 1,
-                    lineColor: '#ffffff'
-                }
-            }
-        },
-        series: [{
-            name: 'Asia',
-            data: [502, 635, 809, 947, 1402, 3634, 5268]
-        }, {
-            name: 'Africa',
-            data: [106, 107, 111, 133, 221, 767, 1766]
-        }, {
-            name: 'Europe',
-            data: [163, 203, 276, 408, 547, 729, 628]
-        }, {
-            name: 'America',
-            data: [18, 31, 54, 156, 339, 818, 1201]
-        }, {
-            name: 'Oceania',
-            data: [2, 2, 2, 6, 13, 30, 46]
-        }]
-    });
-        let areaChart: any = $('#area-chart');
-        areaChart.highcharts({
-          chart: {
-              type: 'area'
-          },
-          title: {
-              text: 'Area chart with negative values'
-          },
-          xAxis: {
-              categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
-          },
-          credits: {
-              enabled: false
-          },
-          series: [{
-              name: 'John',
-              data: [5, 3, 4, 7, 2]
-          }, {
-              name: 'Jane',
-              data: [2, -2, -3, 2, 1]
-          }, {
-              name: 'Joe',
-              data: [3, 4, 4, -2, 5]
-          }]
-      });
-        let totalFruit: any = $('#total-fruit');
-        totalFruit.highcharts({
+     this.getData();
+     this.loadcomments();
+  }
+  loadcharts(){
+
+  }
+  loadcomments() {
+    var x=0;
+    this.getData();
+    var splitted : Array<string> = this.comments['_body'].split('},');
+      console.log('123'+this.comments['_body']);
+    for (let entry of splitted){
+      var entryy : Array<string> = entry.split(',');
+      var y = 0;
+      for (let entryyy of entryy){
+        var entryyyy : Array<string> = entryyy.split(':');
+        var z = 0;
+        for(let entryyyyy of entryyyy){
+          var cleaned = entryyyyy.replace(/\W/g, ""); 
+          //console.log(x+','+y+','+z+','+cleaned);
+          if(y==1&&z==1){
+            this.arr_baby[x]=<number><any>cleaned;
+          }else if(y==2&&z==1){
+            this.arr_teen[x]=<number><any>cleaned;
+          }else if(y==3&&z==1){
+            this.arr_adult[x]=<number><any>cleaned;
+          }else if(y==4&&z==1){
+            this.arr_old[x]=<number><any>cleaned;
+          }
+          z++;
+        }
+        y++;
+      }
+      x++;
+    }
+    let totalActivity: any = $('#total-activity');
+        totalActivity.highcharts({
             chart: {
                 type: 'column'
             },
 
             title: {
-                text: 'Total fruit consumtion, grouped by gender'
+                text: 'Total activity joined people, grouped by age'
             },
 
             xAxis: {
-                categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas']
+                categories: ['Skiing', 'Skating', 'Coaster', 'BumperCar', 'HobbyHorse']
             },
 
             yAxis: {
                 allowDecimals: false,
                 min: 0,
                 title: {
-                    text: 'Number of fruits'
+                    text: 'Amount of people'
                 }
             },
 
             tooltip: {
                 formatter: function () {
                     return '<b>' + this.x + '</b><br/>' +
-                        this.series.name + ': ' + this.y + '<br/>' +
-                        'Total: ' + this.point.stackTotal;
+                        this.series.name + ': ' + this.y;
                 }
             },
 
-            plotOptions: {
-                column: {
-                    stacking: 'normal'
-                }
-            },
 
             series: [{
-                name: 'John',
-                data: [5, 3, 4, 7, 2],
-                stack: 'male'
+                name: 'Baby',
+                data: this.arr_baby,
+                stack: '0-12'
             }, {
-                name: 'Joe',
-                data: [3, 4, 4, 2, 5],
-                stack: 'male'
+                name: 'Teenager',
+                data: this.arr_teen,
+                stack: '13-19'
             }, {
-                name: 'Jane',
-                data: [2, 5, 6, 2, 1],
-                stack: 'female'
+                name: 'Adults',
+                data: this.arr_adult,
+                stack: '20-64'
             }, {
-                name: 'Janet',
-                data: [3, 0, 4, 4, 3],
-                stack: 'female'
+                name: 'Olds',
+                data: this.arr_old,
+                stack: '65-'
             }]
         });
-        let snowDepth: any = $('#snow-depth');
+        let snowDepth: any = $('#temperature');
         snowDepth.highcharts({
             chart: {
                 type: 'spline'
             },
             title: {
-                text: 'Snow depth at Vikjafjellet, Norway'
+                text: 'Temperature at Husky Amusement Park, Boston'
             },
             subtitle: {
-                text: 'Irregular time data in Highcharts JS'
+                text: 'Irregular time data in Boston MA'
             },
             xAxis: {
                 type: 'datetime',
@@ -167,9 +168,9 @@ export class ChartComponent implements OnInit {
             },
             yAxis: {
                 title: {
-                    text: 'Snow depth (m)'
+                    text: 'temperature (Degree Centigrade)'
                 },
-                min: 0
+                min: -30
             },
             tooltip: {
                 headerFormat: '<b>{series.name}</b><br>',
@@ -185,74 +186,110 @@ export class ChartComponent implements OnInit {
             },
 
             series: [{
-                name: 'Winter 2012-2013',
+                name: '2014-2015',
                 // Define the data points. All series have a dummy year
                 // of 1970/71 in order to be compared on the same x axis. Note
                 // that in JavaScript, months start at 0 for January, 1 for February etc.
                 data: [
-                    [Date.UTC(1970, 9, 21), 0],
-                    [Date.UTC(1970, 10, 4), 0.28],
-                    [Date.UTC(1970, 10, 9), 0.25],
-                    [Date.UTC(1970, 10, 27), 0.2],
-                    [Date.UTC(1970, 11, 2), 0.28],
-                    [Date.UTC(1970, 11, 26), 0.28],
-                    [Date.UTC(1970, 11, 29), 0.47],
-                    [Date.UTC(1971, 0, 11), 0.79],
-                    [Date.UTC(1971, 0, 26), 0.72],
-                    [Date.UTC(1971, 1, 3), 1.02],
-                    [Date.UTC(1971, 1, 11), 1.12],
-                    [Date.UTC(1971, 1, 25), 1.2],
-                    [Date.UTC(1971, 2, 11), 1.18],
-                    [Date.UTC(1971, 3, 11), 1.19],
-                    [Date.UTC(1971, 4, 1), 1.85],
-                    [Date.UTC(1971, 4, 5), 2.22],
-                    [Date.UTC(1971, 4, 19), 1.15],
-                    [Date.UTC(1971, 5, 3), 0]
+                    [Date.UTC(1970, 9, 21), 18],
+                    [Date.UTC(1970, 10, 4), 5],
+                    [Date.UTC(1970, 10, 9), 6],
+                    [Date.UTC(1970, 10, 27), 11],
+                    [Date.UTC(1970, 11, 2), 1],
+                    [Date.UTC(1970, 11, 26), 0],
+                    [Date.UTC(1970, 11, 29), 4],
+                    [Date.UTC(1971, 0, 11), -5],
+                    [Date.UTC(1971, 0, 26), -9],
+                    [Date.UTC(1971, 1, 3), -12],
+                    [Date.UTC(1971, 1, 11), -19],
+                    [Date.UTC(1971, 1, 25), -21],
+                    [Date.UTC(1971, 2, 11), -4],
+                    [Date.UTC(1971, 3, 11), 1],
+                    [Date.UTC(1971, 4, 1), 11],
+                    [Date.UTC(1971, 4, 5), 14],
+                    [Date.UTC(1971, 4, 19), 15],
+                    [Date.UTC(1971, 5, 3), 24]
                 ]
             }, {
-                name: 'Winter 2013-2014',
+                name: '2015-2016',
                 data: [
-                    [Date.UTC(1970, 9, 29), 0],
-                    [Date.UTC(1970, 10, 9), 0.4],
-                    [Date.UTC(1970, 11, 1), 0.25],
-                    [Date.UTC(1971, 0, 1), 1.66],
-                    [Date.UTC(1971, 0, 10), 1.8],
-                    [Date.UTC(1971, 1, 19), 1.76],
-                    [Date.UTC(1971, 2, 25), 2.62],
-                    [Date.UTC(1971, 3, 19), 2.41],
-                    [Date.UTC(1971, 3, 30), 2.05],
-                    [Date.UTC(1971, 4, 14), 1.7],
-                    [Date.UTC(1971, 4, 24), 1.1],
-                    [Date.UTC(1971, 5, 10), 0]
+                    [Date.UTC(1970, 9, 21), 25],
+                    [Date.UTC(1970, 10, 4), 12],
+                    [Date.UTC(1970, 10, 9), 1],
+                    [Date.UTC(1970, 10, 27), 15],
+                    [Date.UTC(1970, 11, 2), 8],
+                    [Date.UTC(1970, 11, 26), 1],
+                    [Date.UTC(1970, 11, 29), 0],
+                    [Date.UTC(1971, 0, 11), -9],
+                    [Date.UTC(1971, 0, 26), -1],
+                    [Date.UTC(1971, 1, 3), -13],
+                    [Date.UTC(1971, 1, 11), -14],
+                    [Date.UTC(1971, 1, 25), -25],
+                    [Date.UTC(1971, 2, 11), -9],
+                    [Date.UTC(1971, 3, 11), -3],
+                    [Date.UTC(1971, 4, 1), 7],
+                    [Date.UTC(1971, 4, 5), 15],
+                    [Date.UTC(1971, 4, 19), 14],
+                    [Date.UTC(1971, 5, 3), 26]
                 ]
             }, {
-                name: 'Winter 2014-2015',
+                name: '2016-2017',
                 data: [
-                    [Date.UTC(1970, 10, 25), 0],
-                    [Date.UTC(1970, 11, 6), 0.25],
-                    [Date.UTC(1970, 11, 20), 1.41],
-                    [Date.UTC(1970, 11, 25), 1.64],
-                    [Date.UTC(1971, 0, 4), 1.6],
-                    [Date.UTC(1971, 0, 17), 2.55],
-                    [Date.UTC(1971, 0, 24), 2.62],
-                    [Date.UTC(1971, 1, 4), 2.5],
-                    [Date.UTC(1971, 1, 14), 2.42],
-                    [Date.UTC(1971, 2, 6), 2.74],
-                    [Date.UTC(1971, 2, 14), 2.62],
-                    [Date.UTC(1971, 2, 24), 2.6],
-                    [Date.UTC(1971, 3, 2), 2.81],
-                    [Date.UTC(1971, 3, 12), 2.63],
-                    [Date.UTC(1971, 3, 28), 2.77],
-                    [Date.UTC(1971, 4, 5), 2.68],
-                    [Date.UTC(1971, 4, 10), 2.56],
-                    [Date.UTC(1971, 4, 15), 2.39],
-                    [Date.UTC(1971, 4, 20), 2.3],
-                    [Date.UTC(1971, 5, 5), 2],
-                    [Date.UTC(1971, 5, 10), 1.85],
-                    [Date.UTC(1971, 5, 15), 1.49],
-                    [Date.UTC(1971, 5, 23), 1.08]
+                    [Date.UTC(1970, 9, 21), 16],
+                    [Date.UTC(1970, 10, 4), 8],
+                    [Date.UTC(1970, 10, 9), 9],
+                    [Date.UTC(1970, 10, 27), 10],
+                    [Date.UTC(1970, 11, 2), 9],
+                    [Date.UTC(1970, 11, 26), 0],
+                    [Date.UTC(1970, 11, 29), -3],
+                    [Date.UTC(1971, 0, 11), -3],
+                    [Date.UTC(1971, 0, 26), -9],
+                    [Date.UTC(1971, 1, 3), -12],
+                    [Date.UTC(1971, 1, 11), -19],
+                    [Date.UTC(1971, 1, 25), -12],
+                    [Date.UTC(1971, 2, 11), -3],
+                    [Date.UTC(1971, 3, 11), -1],
+                    [Date.UTC(1971, 4, 1), 0],
+                    [Date.UTC(1971, 4, 17), 19],
+                    [Date.UTC(1971, 4, 29), 10],
+                    [Date.UTC(1971, 5, 23), 21]
                 ]
             }]
         });
+  }
+
+  getData() {
+      this.http.get('http://localhost/index1.php')
+      .subscribe(
+              data => this.comments = JSON.parse(JSON.stringify(data)),
+              error => console.log(error),
+              () => console.log('done' /*+ this.comments['_body']*/));
+  }
+  getData2() {
+     return this.http.get('http://localhost/index2.php')
+      .subscribe(
+              data => this.comments2 = JSON.parse(JSON.stringify(data)),
+              error => console.log(error),
+              () => console.log('done' + this.comments2['_body']));
+  }
+  turnData() {
+    this.getData();
+    var splitted: Array<string> = this.comments['_body'].split('},');
+    for (let str of splitted){
+      console.log(str);
+    }
+  }
+  turnData2(){
+    this.getData2();
+    console.log('doneeee' + this.comments2['_body']);
+    var splitted : Array<string> = this.comments2['_body'].split(',');
+
+   console.log('doneeee' + this.comments2['_body']); 
+    console.log('turndata2'+this.comments2['_body']);
+    var arr=[];
+    var splitted: Array<string> = this.comments2['_body'].split('},');
+    for(let str of splitted){
+      console.log(str);
+    }
   }
 }
